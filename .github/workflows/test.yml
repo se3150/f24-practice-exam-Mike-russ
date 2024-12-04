@@ -29,8 +29,7 @@ jobs:
         uses: nanasess/setup-chromedriver@master
       - name: Install behave
         run: pip install behave behave-webdriver
-      - name: Run Squirrel Server
-        run: nohup python3 squirrel_server.py &
+        run: nohup python3 &
              sleep 5
       - name: Run HTTP Server
         run: behave
