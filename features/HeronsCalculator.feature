@@ -6,4 +6,5 @@ So that I can chat with my math friends like a pro
 Scenario: I can calculate the area of a triangle
     Given I open the url "https://byjus.com/herons-calculator/"
     # write your steps here
-
+    When I enter valid credentials
+    Then I should get valid results

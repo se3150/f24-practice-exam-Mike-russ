@@ -1,0 +1,36 @@
+name: Python Tests
+
+on: [push]
+jobs:
+  RunUnitTests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install pytest
+        run: pip install pytest pytest-spec pytest-describe
+      - name: Run pytest
+        run: pytest --spec test_battery.py
+  RunSystemTests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install pytest
+        run: pip install pytest pytest-spec pytest-describe requests
+      - name: Run pytest
+        run: pytest --spec test_battery.py
+  RunFunctionalTests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install chromedriver
+        uses: nanasess/setup-chromedriver@master
+      - name: Install behave
+        run: pip install behave behave-webdriver
+      - name: Run Squirrel Server
+        run: nohup python3 squirrel_server.py &
+             sleep 5
+      - name: Run HTTP Server
+        run: behave

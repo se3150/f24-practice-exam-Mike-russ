@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.6, pytest-8.3.4, pluggy-1.5.0
+rootdir: /Users/michaelrussell/Desktop/CS-3150-Projects/FinalPractice/f24-practice-exam-Mike-russ
+plugins: describe-2.2.0, spec-4.0.0
+collected 12 items
+
+test_battery.py:
+
+Battery:
+
+  Drain:
+    ✓ It drains charged batteries
+    ✓ It does not drain more than capacity
+    ✓ It does not drain negatives
+    ✓ It does not break if draining an uncharged battery
+    ✓ It does not break if drain is zero
+    ✓ It can drain recharge then drain again
+
+  Recharge:
+    ✓ It recharges partial charged batteries
+    ✓ It does not break if recharge is more than capacity
+    ✓ It does not break if charging a full battery
+    ✓ It does not recharge negatives
+    ✓ It does not break if recharging zero
+    ✓ It can charge drain then charge again
+
+============================== 12 passed in 0.03s ==============================
