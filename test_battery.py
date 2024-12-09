@@ -17,6 +17,12 @@ def partially_charged_battery():
 
 def describe_Battery():
 
+    def test_notify_drain_called_once():
+        mock_monitor = Mock()
+        battery = Battery(100, external_monitor=mock_monitor)
+        battery.drain(30)
+        mock_monitor.notify_drain.assert_called_once_with(70)
+
     def describe_recharge():
         # your test cases here
         def it_recharges_partial_charged_batteries(partially_charged_battery):
